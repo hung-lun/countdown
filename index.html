@@ -36,6 +36,12 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            border-radius: 15px;
+            border: 3px solid #ffbe73a9;
+            padding: 10px 20px;
+        }
+        .red{
+            border: 3px solid #ff9d00cb;
         }
     </style>
 </head>
@@ -61,10 +67,21 @@
             const minutes = Math.floor((timeUntil6pm % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((timeUntil6pm % (1000 * 60)) / 1000);
             
-            const countdownElement = document.getElementById('countdown');
-            countdownElement.textContent = `${now.getMonth()+1}/${now.getDate()}　 ${hours} 小時 ${minutes} 分鐘 ${seconds} 秒`;
-        }
+            var countdownElement = document.getElementById('countdown');
+            countdownElement.innerHTML = `${now.getMonth()+1}` + '/' + `${now.getDate()}` + "　" + `  ${hours} 小時 ${minutes} 分鐘 ${seconds} 秒`;
 
+            if(`${hours}${minutes}` <= '034' && `${hours}${minutes}` >= '010'){
+                var box = document.querySelector('.countdown');
+                box.style = "border: 3px solid #ff9d00cb;";
+            }else if(`${hours}${minutes}` <= '09'){
+                var box = document.querySelector('.countdown');
+                box.style = "border: 3px solid #ff7373a9;";
+            }else if(`${hours}${minutes}` <= '1000'){
+                var box = document.querySelector('.countdown');
+                box.style = "border: 3px solid #ffbe73a9;";
+            }
+            console.log(`${hours}${minutes}`)
+        }
         updateCountdown();
         setInterval(updateCountdown, 1000);
 
