@@ -57,7 +57,7 @@
             
             if (now > targetTime) {
                 targetTime.setDate(targetTime.getDate() + 1);
-            }
+            }`${now.getMonth()+1}` + '/' + `${now.getDate()}`
 
             console.log(now); //現在時間 Wed Sep 27 2023 11:40:51 GMT+0800 (台北標準時間)
             console.log(targetTime); //目標時間 Wed Sep 27 2023 18:00:00 GMT+0800 (台北標準時間)
@@ -69,6 +69,13 @@
             
             var countdownElement = document.getElementById('countdown');
             countdownElement.innerHTML = `${now.getMonth()+1}` + '/' + `${now.getDate()}` + "　" + `  ${hours} 小時 ${minutes} 分鐘 ${seconds} 秒`;
+            console.log(`${now.getMonth()+1}` + '/' + `${now.getDate()}`);
+
+            if(`${now.getMonth()+1}` + '/' + `${now.getDate()}` == "6/28"){
+                countdownElement.innerHTML = `${now.getMonth()+1}` + '/' + `${now.getDate()}` + "　實習結束快樂!　" + `  ${hours} 小時 ${minutes} 分鐘 ${seconds} 秒`;
+            }else if (`${now.getMonth()+1}` + '/' + `${now.getDate()}` == "6/18"){
+                countdownElement.innerHTML = `${now.getMonth()+1}` + '/' + `${now.getDate()}` + "　實習倒數10天!　" + `  ${hours} 小時 ${minutes} 分鐘 ${seconds} 秒`;
+            }
 
             if(`${hours}${minutes}` <= '034' && `${hours}${minutes}` >= '010'){
                 var box = document.querySelector('.countdown');
@@ -84,43 +91,6 @@
         }
         updateCountdown();
         setInterval(updateCountdown, 1000);
-
-
-
-
-        // const x = document.getElementById('X');
-        // const y = document.getElementById('Y');
-        // y.addEventListener('click',function(){
-
-        //     function updateCountdown1() {
-        //     const x = document.getElementById('X');
-        //     const y = document.getElementById('Y');
-
-        //     const now = new Date();
-        //     const targetTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), x.value, y.value, 0);
-            
-        //     if (now > targetTime) {
-        //         targetTime.setDate(targetTime.getDate() + 1);
-        //     }
-
-        //     console.log(now); //現在時間 Wed Sep 27 2023 11:40:51 GMT+0800 (台北標準時間)
-        //     console.log(targetTime); //目標時間 Wed Sep 27 2023 18:00:00 GMT+0800 (台北標準時間)
-
-        //     const timeUntil6pm = targetTime - now;
-        //     const hours = Math.floor(timeUntil6pm / (1000 * 60 * 60));
-        //     const minutes = Math.floor((timeUntil6pm % (1000 * 60 * 60)) / (1000 * 60));
-        //     const seconds = Math.floor((timeUntil6pm % (1000 * 60)) / 1000);
-            
-        //     const countdownElement = document.getElementById('countdown');
-        //     countdownElement.textContent = `${now.getMonth()+1}/${now.getDate()}　 ${hours} 小時 ${minutes} 分鐘 ${seconds} 秒`;
-        // }
-
-        // updateCountdown1();
-        // setInterval(updateCountdown1, 1000);
-
-
-        // })
-
         
     </script>
 </body>
