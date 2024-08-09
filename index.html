@@ -75,8 +75,10 @@
                 countdownElement.innerHTML = `${now.getMonth()+1}` + '/' + `${now.getDate()}` + "　實習結束快樂!　" + `  ${hours} 小時 ${minutes} 分鐘 ${seconds} 秒`;
             }else if (`${now.getMonth()+1}` + '/' + `${now.getDate()}` == "6/18"){
                 countdownElement.innerHTML = `${now.getMonth()+1}` + '/' + `${now.getDate()}` + "　實習倒數10天!　" + `  ${hours} 小時 ${minutes} 分鐘 ${seconds} 秒`;
+            }else if (`${now.getMonth()+1}` + '/' + `${now.getDate()}` > "6/28"){
+                countdownElement.innerHTML = "　實習結束🔚　" ;
             }
-
+			
             if(`${hours}${minutes}` <= '034' && `${hours}${minutes}` >= '010'){
                 var box = document.querySelector('.countdown');
                 box.style = "border: 3px solid #ff9d00cb;";
